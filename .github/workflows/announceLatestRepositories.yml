@@ -1,4 +1,4 @@
-name: Announce LATEST repositories
+name: announce LATEST repositories
 
 on:
   #repository_dispatch:
