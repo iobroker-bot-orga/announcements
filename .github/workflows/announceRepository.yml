@@ -1,4 +1,4 @@
-name: Check repository
+name: Announce Repository
 
 on:
   repository_dispatch:
