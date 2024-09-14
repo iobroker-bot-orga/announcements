@@ -92,9 +92,8 @@ async function main() {
         const owner = parts[3];
         console.log(`[INFO] processing ${owner}/ioBroker.${adapter} (${curr}/${total})`);
 
-        triggerRepoCheck(owner, adapter);
+        triggerRepoAnnounce(owner, adapter);
         console.log('sleeping (90s) ...')
-        await common.sleep(90000);
         process.exit(1);
 }
 }
