@@ -4,9 +4,9 @@
 const {parseArgs} = require('node:util');
 const axios = require('axios');
 
-const common = require('lib/commonTools.js');
-//const github = require('lib/githubTools.js');
-const iobroker = require('lib/iobrokerTools.js');
+const common = require('./lib/commonTools.js');
+//const github = require('./lib/githubTools.js');
+const iobroker = require('./lib/iobrokerTools.js');
 
 const opts = {
     cleanup: false,
