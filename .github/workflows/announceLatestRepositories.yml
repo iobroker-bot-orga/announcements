@@ -1,0 +1,37 @@
+name: Check LATEST repositories
+
+on:
+  #repository_dispatch:
+  #  types: [check-latest-repositories]
+
+  workflow_dispatch:
+    inputs:
+      template:
+        type: string
+        required: true
+
+      flags:
+        type: string
+        required: true
+
+  schedule:
+    # * is a special character in YAML, so you have to quote this string
+    # every friday at 1:00
+    # - cron:  '15 0 * * 5'
+
+jobs:
+  announce-repository:
+    name: announce latest repository
+    if: |
+      github.repository == 'iobroker-bot-orga/announcements'
+      
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm i
+      - run: node ./announceLatestRepositories.js --template="${{ github.event.inputs.template }}" ${{ github.event.inputs.flags }} 
+        env:
+          IOBBOT_GITHUB_TOKEN: ${{ secrets.IOBBOT_GITHUB_TOKEN }}
