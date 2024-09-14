@@ -53,7 +53,7 @@ async function main() {
             short: 'd',
         },
         'from': {
-            type: 'from',
+            type: 'string',
         },
         'template': {
             type: 'string',
