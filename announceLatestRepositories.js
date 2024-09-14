@@ -93,9 +93,9 @@ async function main() {
         console.log(`[INFO] processing ${owner}/ioBroker.${adapter} (${curr}/${total})`);
 
         triggerRepoAnnounce(owner, adapter);
-        console.log('sleeping (90s) ...')
-        process.exit(1);
-}
+        console.log('sleeping (120s) ...');
+        await common.sleep(120000);
+    }
 }
 
 process.env.OWN_GITHUB_TOKEN = process.env.IOBBOT_GITHUB_TOKEN;
