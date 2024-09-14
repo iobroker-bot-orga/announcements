@@ -20,7 +20,7 @@ jobs:
   announce-repository:
     name: announce repository
     if: |
-      github.repository == 'iobroker-bot-orga/announce'
+      github.repository == 'iobroker-bot-orga/announcements'
       
     runs-on: ubuntu-latest
     steps:
