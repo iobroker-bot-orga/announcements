@@ -42,6 +42,6 @@ jobs:
         run: npm install --omit=dev
 
       - name: announce repository
-        run: node ./announceRepository.js ${{ github.event.inputs.repository }} ${{ github.event.client_payload.url }} --template="${{ github.event.inputs.template }}${{ github.event.client_payload.template }}" ${{ github.event.inputs.flags }}${{ github.event.client_payload.flags }}
+        run: node ./announceRepository.js --ABORT ${{ github.event.inputs.repository }} ${{ github.event.client_payload.url }} --template="${{ github.event.inputs.template }}${{ github.event.client_payload.template }}" ${{ github.event.inputs.flags }}${{ github.event.client_payload.flags }}
         env:
           IOBBOT_GITHUB_TOKEN: ${{ secrets.IOBBOT_GITHUB_TOKEN }}
