@@ -132,14 +132,14 @@ async function main() {
         const owner = parts[3];
         console.log(`[INFO] processing ${owner}/ioBroker.${adapter} (${curr}/${total})`);
 
-//        triggerRepoAnnounce(owner, adapter);
+        triggerRepoAnnounce(owner, adapter);
         counter=counter-1;
         if (counter) {
             console.log(`will restart after ${counter} announcements, sleeping (${delay}s) ...`);
         } else {
             console.log(`will restart after delay, sleeping (${delay}s) ...`);            
         }
-//        await common.sleep(delay*1000);
+        await common.sleep(delay*1000);
     }
     console.log(`[INFO] task completed`);            
 }
