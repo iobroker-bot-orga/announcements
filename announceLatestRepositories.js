@@ -29,8 +29,8 @@ function triggerRepoAnnounce(owner, adapter) {
 
     let flags = '';
     if (opts.cleanup) flags = flags + ' --cleanup';
-    if (opts.dry) flags = flags + 'dry';
-    if (opts.debug) flags = flags + 'debug';
+    if (opts.dry) flags = flags + ' --dry';
+    if (opts.debug) flags = flags + ' --debug';
 
     // curl -L -X POST -H "Accept: application/vnd.github+json" -H "Authorization: Bearer ghp_xxxxxxxx" https://api.github.com/repos/iobroker-bot-orga/check-tasks/dispatches -d "{\"event_type\": \"check-repository\", \"client_payload\": {\"url\": \"mcm1957/iobroker.weblate-test\"}}"
     return axios.post(`https://api.github.com/repos/iobroker-bot-orga/announcements/dispatches`, {"event_type": "announce-repository", "client_payload": {"url": url, "template" : opts.template, "flags" : flags}},
@@ -51,8 +51,8 @@ function triggerRestart(adapter) {
 
     let flags = `--from="${adapter}"`;
     if (opts.cleanup) flags = flags + ' --cleanup';
-    if (opts.dry) flags = flags + 'dry';
-    if (opts.debug) flags = flags + 'debug';
+    if (opts.dry) flags = flags + ' --dry';
+    if (opts.debug) flags = flags + ' --debug';
 
     // curl -L -X POST -H "Accept: application/vnd.github+json" -H "Authorization: Bearer ghp_xxxxxxxx" https://api.github.com/repos/iobroker-bot-orga/check-tasks/dispatches -d "{\"event_type\": \"check-repository\", \"client_payload\": {\"url\": \"mcm1957/iobroker.weblate-test\"}}"
     return axios.post(`https://api.github.com/repos/iobroker-bot-orga/announcements/dispatches`, {"event_type": "announce-latest-restart", "client_payload": {"template": opts.template, "flags" : flags}},
