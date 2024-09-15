@@ -93,8 +93,8 @@ async function main() {
         console.log(`[INFO] processing ${owner}/ioBroker.${adapter} (${curr}/${total})`);
 
         triggerRepoAnnounce(owner, adapter);
-        console.log('sleeping (120s) ...');
-        await common.sleep(120000);
+        console.log('sleeping (30s) ...');
+        await common.sleep(30000);
     }
 }
 
