@@ -16,9 +16,43 @@ const opts = {
     template: '',
 }
 
+let checkScript;
+const context = {};
+
 function debug (text){
     if (opts.debug) {
         console.log(`[DEBUG] ${text}`);
+    }
+}
+
+async function initCheck(context){
+    debug(`initCheck('${context.template}')`);
+
+    const filename = `${__dirname}/templates/${context.template}.js`;
+    console.log(`[INFO] initializing checking script ${filename}`);
+
+    try {
+        checkScript = require(filename); 
+    } catch (e) {
+        if ( e.code === 'MODULE_NOT_FOUND') {
+            console.log(`[INFO] no checking script found`);
+        } else {
+            throw(e);
+        }
+    }
+
+    if (checkScript && checkScript.init) {
+        await checkScript.init(context);
+    }
+}
+
+async function checkAnnouncement(context){
+    debug(`checkAnnouncement('${context.template}')`);
+
+    if (checkScript && checkScript.test) {
+        return await checkScript.test(context);
+    } else {
+        return true;
     }
 }
 
@@ -108,6 +142,9 @@ async function main() {
     console.log(`[INFO] delay set to ${delay} seconds`);
     console.log(`[INFO] will restart after 3h (${counter} announcements)`);
 
+    context.template = opts.template;
+    await initCheck(context);
+
     let curr = 0;
     let skip = opts.from && (opts.from !== '');
     if (skip) console.log (`--from set to "${opts.from}" - searching for first adapter to process ...`);
@@ -130,17 +167,33 @@ async function main() {
 
         const parts = latestRepo[adapter].meta.split('/');
         const owner = parts[3];
-        console.log(`[INFO] processing ${owner}/ioBroker.${adapter} (${curr}/${total})`);
+        console.log(`\n[INFO] processing ${owner}/ioBroker.${adapter} (${curr}/${total})`);
 
-        triggerRepoAnnounce(owner, adapter);
-        counter=counter-1;
-        if (counter) {
-            console.log(`will restart after ${counter} announcements, sleeping (${delay}s) ...`);
-        } else {
-            console.log(`will restart after delay, sleeping (${delay}s) ...`);            
+        context.owner = owner;
+        context.adapter = adapter;        
+        if ( ! await checkAnnouncement(context)) {
+            console.log(`[INFO] SKIPPING ${owner}/ioBroker.${adapter} (${curr}/${total})`);
+            continue;
         }
-        await common.sleep(delay*1000);
+
+        if (! opts.dry) {
+            triggerRepoAnnounce(owner, adapter);
+            counter=counter-1;
+            if (counter) {
+                console.log(`will restart after ${counter} announcements, sleeping (${delay}s) ...`);
+            } else {
+                console.log(`will restart after delay, sleeping (${delay}s) ...`);            
+            }
+            await common.sleep(delay*1000);
+        } else {
+            console.log (`[DRY] would trigger ${owner}/ioBroker.${adapter}`)
+        }
     }
+
+    if (checkScript && checkScript.finalize) {
+        await checkScript.finalize(context);
+    }
+
     console.log(`[INFO] task completed`);            
 }
 

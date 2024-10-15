@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+const axios = require('axios');
 const fs = require('node:fs');
 const {parseArgs} = require('node:util');
 
@@ -16,6 +17,34 @@ const opts = {
 function debug (text){
     if (opts.debug) {
         console.log(`[DEBUG] ${text}`);
+    }
+}
+
+async function checkAnnouncement(context){
+    debug(`checkAnnouncement('${context.template}')`);
+
+    const filename = `${__dirname}/templates/${context.template}.js`;
+    console.log(`[INFO] activating checking script ${filename}`);
+
+    let checkScript;
+    try {
+        checkScript = require(filename); 
+    } catch (e) {
+        if ( e.code === 'MODULE_NOT_FOUND') {
+            console.log(`[INFO] no checking script found`);
+        } else {
+            throw(e);
+        }
+    }
+
+    if (checkScript && checkScript.init) {
+        await checkScript.init(context);
+    }
+
+    if (checkScript && checkScript.test) {
+        return await checkScript.test(context);
+    } else {
+        return true;
     }
 }
 
@@ -116,6 +145,8 @@ async function main() {
 
     //console.log(values, positionals);
 
+    const context = {};
+
     opts.debug = values['debug'];
     opts.dry = values['dry'];
     opts.template = values['template'];
@@ -134,34 +165,43 @@ async function main() {
     if (!repoUrl.toLowerCase().includes('github.com')) {
         repoUrl =  `https://github.com/${repoUrl}`
     }
+
     const owner = iobroker.getOwner(repoUrl);
     const adapter = iobroker.getAdapterName(repoUrl);
-    const repo = `ioBroker.${adapter}`;           
+    const repo = `ioBroker.${adapter}`;
+
+    context.template = opts.template;
+    context.owner = owner;
+    context.adapter = adapter;
 
     console.log(`[INFO] processing ${repoUrl}`);
 
     // get title an body
     const announcement = await getAnnouncement(opts.template);
 
-    // check if older issues exists
-    let issues = await getOldIssues(owner, repo, announcement.title);
-    const oldIssueId = issues[0]?.number || 0;
-    debug(`detected existing issue ${oldIssueId}`);
-
-    // if no issue exists, create a new one, else update old one
-    if (!oldIssueId) {
-            await createNewIssue(owner, repo, announcement);
-    } else if (opts.recreate) {
-        const newIssueId = await createNewIssue(owner, repo, announcement);
-        closeIssue(owner, repo, oldIssueId, `Issue outdated due to RECREATE request. Follow up issue #${newIssueId} has been created.`);
-        console.log(`[INFO] old issue ${oldIssueId} closed due to --recreate request`);
+    // process filter if available
+    const check = await checkAnnouncement(context);
+    if (!check) {
+        console.log(`[INFO] repository should be skipped according to check script`);
     } else {
-        console.log(`[INFO] nothing to do as old issue ${oldIssueId} exists`);
+        // check if older issues exists
+        let issues = await getOldIssues(owner, repo, announcement.title);
+        const oldIssueId = issues[0]?.number || 0;
+        debug(`detected existing issue ${oldIssueId}`);
 
+        // if no issue exists, create a new one, else update old one
+        if (!oldIssueId) {
+                await createNewIssue(owner, repo, announcement);
+        } else if (opts.recreate) {
+            const newIssueId = await createNewIssue(owner, repo, announcement);
+            closeIssue(owner, repo, oldIssueId, `Issue outdated due to RECREATE request. Follow up issue #${newIssueId} has been created.`);
+            console.log(`[INFO] old issue ${oldIssueId} closed due to --recreate request`);
+        } else {
+            console.log(`[INFO] nothing to do as old issue ${oldIssueId} exists`);
+        }
+    }
     console.log('[INFO] processing completed');
-}
 }
 
 process.env.OWN_GITHUB_TOKEN = process.env.IOBBOT_GITHUB_TOKEN;
 main();
-
