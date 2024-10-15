@@ -16,7 +16,7 @@ Please close this issue after you updated the dependency and released a new vers
 
 Feel free to contact me (@iobroker-bot) if you have any questions.
 
-And **THANKS A LOT** for maintaining this adapter from me and all users.
+And **THANKS A LOT** for maintaining this adapter from me and all users.  
 _Let's work together for the best user experience._
 
 your
@@ -38,8 +38,7 @@ Bitte das Issue schließen, nachdem die Abhängigkeit aktualisiert und eine neue
 
 Bei Fragen zur Aktualisierung können Sie mich gerne kontaktieren (@iobroker-bot).
 
-Und **VIELEN DANK** von mir und allen Benutzern für die Wartung dieses Adapters.
-
+Und **VIELEN DANK** von mir und allen Benutzern für die Wartung dieses Adapters.  
 _Lassen Sie uns gemeinsam für das beste Benutzererlebnis arbeiten._
 
 Ihr
