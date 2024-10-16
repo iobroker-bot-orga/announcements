@@ -1,4 +1,4 @@
-Compatibility check and testing for Responsive Design
+Compatibility check and testing for Responsive Design (materialize)
 
 ### Notification from ioBroker Check and Service Bot
 Dear Adapter developer,
@@ -75,9 +75,11 @@ Please close the issue after you checked it.
 
 Feel free to contact me (@iobroker-bot) if you have any questions.
 
-And THANKS A LOT for maintaining this adapter from me and all users. Let's work together for the best user experience.
+And **THANKS A LOT** for maintaining this adapter from me and all users.  
+_Let's work together for the best user experience._
 
-your ioBroker Check and Service Bot
+your  
+_ioBroker Check and Service Bot_
 
 @simatec for evidence
 
