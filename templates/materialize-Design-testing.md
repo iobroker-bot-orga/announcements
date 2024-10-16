@@ -45,6 +45,30 @@ If you use your own CSS styles in your adapters, you should define the necessary
 }
 ````
 
+### Integration of css and js files
+It is also important that the following js and css files are included in index_m.html or tab_m.html
+
+````
+<!-- Load ioBroker scripts and styles -->
+<link rel="stylesheet" type="text/css" href="../../lib/css/fancytree/ui.fancytree.min.css" />
+<link rel="stylesheet" type="text/css" href="../../css/adapter.css" />
+<link rel="stylesheet" type="text/css" href="../../lib/css/materialize.css">
+
+<script type="text/javascript" src="../../lib/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="../../socket.io/socket.io.js"></script>
+
+<script type="text/javascript" src="../../lib/js/materialize.js"></script>
+<script type="text/javascript" src="../../lib/js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="../../lib/js/jquery.fancytree-all.min.js"></script>
+
+<script type="text/javascript" src="../../js/translate.js"></script>
+<script type="text/javascript" src="../../lib/js/selectID.js"></script>
+<script type="text/javascript" src="../../js/adapter-settings.js"></script>
+<script type="text/javascript" src="words.js"></script>
+````
+
+Adapter-settings.js and adapter.css are very important for a responsive design. These files are provided and maintained by the admin.
+
 ---
 
 Please close the issue after you checked it.
