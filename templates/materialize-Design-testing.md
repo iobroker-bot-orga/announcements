@@ -63,7 +63,6 @@ It is also important that the following js and css files are included in index_m
 <script type="text/javascript" src="../../lib/js/jquery.fancytree-all.min.js"></script>
 
 <script type="text/javascript" src="../../js/translate.js"></script>
-<script type="text/javascript" src="../../lib/js/selectID.js"></script>
 <script type="text/javascript" src="../../js/adapter-settings.js"></script>
 <script type="text/javascript" src="words.js"></script>
 ````
