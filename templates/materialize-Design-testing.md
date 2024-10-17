@@ -5,9 +5,10 @@ Dear Adapter developer,
 
 ioBroker should be fully usable and operable on mobile devices
 
-So please check your Materialize Adapter for Responsive Design.
-You can perform these tests in the developer console of your browser (F12)
+**So please check your Materialize Adapter for Responsive Design.
+You can perform these tests in the developer console of your browser (F12)**
 
+Future additions and corrections to this issue will be published at the responsive-design-initiative repository. Please check https://github.com/iobroker-community-adapters/responsive-design-initiative?tab=readme-ov-file#responsive-design-initiative for updates.
 
 ---
 
