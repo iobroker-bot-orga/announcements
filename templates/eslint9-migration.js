@@ -90,7 +90,7 @@ async function test(context) {
 
     console.log(`[INFO] package.json specifies eslint ${packageJson.devDependencies.eslint} - dropping notification`);
 
-    const reportStart = `- [ ] ${context.owner}/ioBroker.${context.adapter}  - ${context.adapterInfo[context.adapter].user} user / rank ${context.adapterInfo[context.adapter].rank}`;
+    const reportStart = `- [ ] ${context.owner}/ioBroker.${context.adapter}  - ${context.adapterInfo[context.adapter]?.user} user / rank ${context.adapterInfo[context.adapter]?.rank}`;
     context.report.push(`${reportStart}`);
     return true;
 }
