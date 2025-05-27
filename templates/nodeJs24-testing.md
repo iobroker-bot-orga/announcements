@@ -25,8 +25,9 @@ _ioBroker Check and Service Bot_
 
 _Note: If you added node 24 tests already, simply close this issue._
 
+- - - 
 
-**Deutschsprcahige Version**
+**Deutschsprachige Version**
 
 Liebe Adapterentwickler,
 
@@ -38,7 +39,7 @@ Bitte Node.js 24 zur Adapter-Testmatrix, die bei Commits ausgeführt wird, hinzu
 
 Bitte auch die engines-Anforderung in package.json in jedem Fall entsprechend der beim Test verwendeten Mindest-Node-Version anpassen. Dies gilt auch, wenn der Adapter mit bestimmten Node.js-Versionen nicht kompatibel ist. So kann ioBroker Benutzer daran hindern, den Adapter zu installieren, falls er nicht kompatibel ist. Sollten Inkompatibilitäten mit Node.js 24 festgestellt werden, bitte versuchen diese zu beheben und/oder und mitzuteilenfalls  das Problem bei den Kernkomponenten vermutet wird.
 
-Bitte schließen dieses Issue nach der Überprüfung schließen.
+Bitte dieses Issue nach der Überprüfung schließen.
 
 Bei Fragen können Sie mich gerne kontaktieren (@iobroker-bot).
 
