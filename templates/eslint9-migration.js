@@ -76,19 +76,26 @@ async function test(context) {
         return false;
     }
 
-    if (!packageJson.devDependencies.eslint) {
-        console.log(`[INFO] package.json does not contain eslint - skipping`);
+//    if (!packageJson.devDependencies.eslint) {
+//        console.log(`[INFO] package.json does not contain eslint - skipping`);
+//        return false;
+//    }
+
+//    let dependencyVersion = packageJson.devDependencies.eslint;
+//    dependencyVersion = dependencyVersion.replace(/[\^~]/, '');
+//    if ( compareVersions.compare(dependencyVersion, '9.0.0', '>=') ) {
+//        console.log(`[INFO] package.json specifies eslint ${packageJson.devDependencies.eslint} - skipping`);
+//        return false;
+//    }
+
+//    console.log(`[INFO] package.json specifies eslint ${packageJson.devDependencies.eslint} - dropping notification`);
+
+    if ( packageJson.devDependencies['@iobroker/eslint-config'] ) {
+        console.log(`[INFO] package.json specifies ${packageJson.devDependencies['@iobroker/eslint-config'] } - skipping`);
         return false;
     }
 
-    let dependencyVersion = packageJson.devDependencies.eslint;
-    dependencyVersion = dependencyVersion.replace(/[\^~]/, '');
-    if ( compareVersions.compare(dependencyVersion, '9.0.0', '>=') ) {
-        console.log(`[INFO] package.json specifies eslint ${packageJson.devDependencies.eslint} - skipping`);
-        return false;
-    }
-
-    console.log(`[INFO] package.json specifies eslint ${packageJson.devDependencies.eslint} - dropping notification`);
+    console.log(`[INFO] package.json does not specify '@iobroker/eslint-config' - dropping notification`);
 
     const reportStart = `- [ ] ${context.owner}/ioBroker.${context.adapter}  - ${context.adapterInfo[context.adapter]?.user} user / rank ${context.adapterInfo[context.adapter]?.rank}`;
     context.report.push(`${reportStart}`);
