@@ -136,7 +136,7 @@ async function main() {
 
     const latestRepo = await iobroker.getLatestRepoLive();
     const total = Object.keys(latestRepo).length;
-    const delay = 60; // seconds
+    const delay = 120; // seconds
     let counter = 3 * 60 * (60 / delay); /* delay 3h */
 
     console.log(`[INFO] delay set to ${delay} seconds`);
@@ -173,21 +173,21 @@ async function main() {
         context.adapter = adapter;        
         if ( ! await checkAnnouncement(context)) {
             console.log(`[INFO] SKIPPING ${owner}/ioBroker.${adapter} (${curr}/${total})`);
-            continue;
-        }
-
-        if (! opts.dry) {
-            triggerRepoAnnounce(owner, adapter);
-            counter=counter-1;
-            if (counter) {
-                console.log(`will restart after ${counter} announcements, sleeping (${delay}s) ...`);
-            } else {
-                console.log(`will restart after delay, sleeping (${delay}s) ...`);            
-            }
-            await common.sleep(delay*1000);
         } else {
-            console.log (`[DRY] would trigger ${owner}/ioBroker.${adapter}`)
-        }
+	    if (! opts.dry) {
+	        triggerRepoAnnounce(owner, adapter);
+	    } else {
+                console.log (`[DRY] would trigger ${owner}/ioBroker.${adapter}`)
+            }
+	}
+
+	counter=counter-1;
+	if (counter) {
+	    console.log(`will restart after ${counter} announcements, sleeping (${delay}s) ...`);
+	} else {
+	    console.log(`will restart after delay, sleeping (${delay}s) ...`);            
+	}
+	await common.sleep(delay*1000);
     }
 
     if (checkScript && checkScript.finalize) {
