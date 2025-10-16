@@ -67,7 +67,7 @@ To initiate the migration to Trusted Publishing, you need to configure it in you
 4. **Save the configuration**
 
 For more information, see:
-- [NPM Trusted Publishing documentation](https://docs.npmjs.com/generating-provenance-statements)
+- [NPM Trusted Publishing documentation](https://docs.npmjs.com/trusted-publishers)
 - [GitHub Actions OIDC documentation](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)
 
 ### Actions for repositories using up-to-date test-and-release workflow using iobroker/action-testing-deploy
@@ -210,7 +210,7 @@ Um die Migration zu Trusted Publishing zu initiieren, muss dies im NPM-Konto kon
 4. **Konfiguration speichern**
 
 Weitere Informationen sind verfügbar unter:
-- [NPM Trusted Publishing Dokumentation](https://docs.npmjs.com/generating-provenance-statements)
+- [NPM Trusted Publishing documentation](https://docs.npmjs.com/trusted-publishers)
 - [GitHub Actions OIDC Dokumentation](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)
 
 ### Aktionen für Repositories mit aktuellem test-and-release Workflow unter Verwendung von iobroker/action-testing-deploy
