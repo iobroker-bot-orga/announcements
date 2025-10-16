@@ -1,7 +1,7 @@
+NPM is revoking classic tokens - Migration to Trusted Publishing recommended until early November 2025
+
 [German description can be found below](#deutsche-beschreibung)  
 [Deutsche Beschreibung weiter unten](#deutsche-beschreibung)
-
-NPM is revoking classic tokens - Migration to Trusted Publishing recommended until early November 2025
 
 # NPM is revoking classic tokens
 
