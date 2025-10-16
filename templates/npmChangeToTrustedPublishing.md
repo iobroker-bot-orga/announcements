@@ -125,7 +125,7 @@ If your repository is not yet using the standard test-and-release workflow the f
 
 - Evaluate to use standard test-and-release workflow and process as described previously.
 - If you must keep a modified / private test-and-release workflow consider at least using action ioBroker/testing-action-deploy@v1 within your workflow. You can then follow the migration guide described previously
-- If you really must use a private deploy mechanism follow the steps described at [NPM Trusted Publishing documentation](https://docs.npmjs.com/generating-provenance-statements). The following points are important:
+- If you really must use a private deploy mechanism follow the steps described at [NPM Trusted Publishing documentation](https://docs.npmjs.com/trusted-publishers). The following points are important:
   - ensure that you entered the correct workflow name when setting up 'Trusted Publishing'
   - ensure that you really use the newest npm release to process the deploy. Use a dedicated 'npm install -g npm@latest' command for update within your workflow. npm packaged within your node release might be too old. Add the npm upgrade near the deploy command - do not update npm for the complete workflow as this might cause negative side effects.
   - do NOT use a token or try to login to npm. Use the 'npm publish' without dedicated authorization. 
@@ -268,7 +268,7 @@ Falls das Repository noch nicht den Standard-test-and-release Workflow verwendet
 
 - Prüfen, ob der Standard-test-and-release Workflow und der zuvor beschriebene Prozess verwendet werden können.
 - Falls ein modifizierter / privater test-and-release Workflow beibehalten werden muss, zumindest die Verwendung der Action ioBroker/testing-action-deploy@v1 innerhalb des Workflows in Betracht ziehen. Dann kann dem zuvor beschriebenen Migrationsleitfaden gefolgt werden.
-- Falls wirklich ein privater Deploy-Mechanismus verwendet werden muss, den Schritten in der [NPM Trusted Publishing Dokumentation](https://docs.npmjs.com/generating-provenance-statements) folgen. Folgende Punkte sind dabei wichtig:
+- Falls wirklich ein privater Deploy-Mechanismus verwendet werden muss, den Schritten in der [NPM Trusted Publishing documentation](https://docs.npmjs.com/trusted-publishers) folgen. Folgende Punkte sind dabei wichtig:
   - Sicherstellen, dass der korrekte Workflow-Name beim Einrichten von 'Trusted Publishing' eingegeben wurde
   - Sicherstellen, dass wirklich die neueste npm-Version für den Deploy-Prozess verwendet wird. Einen dedizierten 'npm install -g npm@latest' Befehl für das Update innerhalb des Workflows verwenden. Die mit der Node-Version gepackte npm-Version könnte zu alt sein. Das npm-Upgrade in der Nähe des Deploy-Befehls hinzufügen - npm nicht für den gesamten Workflow aktualisieren, da dies negative Nebeneffekte verursachen könnte.
   - KEINEN Token verwenden und NICHT versuchen, sich bei npm anzumelden. 'npm publish' ohne dedizierte Autorisierung verwenden.
