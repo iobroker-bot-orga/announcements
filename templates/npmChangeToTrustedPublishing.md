@@ -63,6 +63,8 @@ To initiate the migration to Trusted Publishing, you need to configure it in you
      - **Repository name**: Your adapter repository name (e.g., `ioBroker.your-adapter`)
      - **Workflow name**: `test-and-release.yml` (or the name of your release workflow)
      - **Environment**: Leave blank
+    
+     **IMPORTANT: all information is case sensitive!**
 
 4. **Save the configuration**
 
@@ -207,6 +209,8 @@ Um die Migration zu Trusted Publishing zu initiieren, muss dies im NPM-Konto kon
      - **Workflow name**: `test-and-release.yml` (oder der Name des Release-Workflows)
      - **Environment**: Leer lassen
 
+     **ACHTUNG: Alle Eingaben sind casesensitiv! Groß-/Kleinschreibung genau beachten!**
+     
 4. **Konfiguration speichern**
 
 Weitere Informationen sind verfügbar unter:
