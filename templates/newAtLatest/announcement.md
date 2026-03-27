@@ -19,7 +19,7 @@ This will allow users to provide feedback, and help you improve the adapter befo
 
 If you do not have write access to this section of the forum, please contact '@homoran' using the forum chat and request write access.
 
-Please note that the adapter might be removed from repository again if no testing topic is created and maintained by you. Users should have a place to discuss problems and improvement suggestions for the adapter.
+Please note that the adapter might be removed from the repository again if no testing topic is created and maintained by you. Users should have a place to discuss problems and improvement suggestions for the adapter.
 
 When closing this issue please **add a comment with the link to the forum topic**.
 
@@ -35,17 +35,25 @@ _ioBroker Check and Service Bot_
 
 Lieber Adapter-Entwickler,
 
-dein Adapter wurde kürzlich im ioBroker **latest** Repository veröffentlicht. Herzlichen Glückwunsch!
+dein Adapter wurde kürzlich im ioBroker **latest** Repository veröffentlicht.
 
-Um Feedback von Benutzern zu ermöglichen und sie zum Testen einzuladen, empfehlen wir, im Bereich **tester** des ioBroker-Forums unter https://forum.iobroker.net ein Thema zu erstellen.
+Um Feedback von Benutzern zu ermöglichen und sie zum Testen einzuladen, erstelle bitte ein Thema im Bereich **tester** des ioBroker-Forums unter https://forum.iobroker.net.
 
 Das Thema sollte den folgenden Titel haben:
 
 **Test adapter \<AdapterName\> version \<version\>**
 
-So können Benutzer Probleme melden, Feedback geben und dabei helfen, den Adapter zu verbessern, bevor er ein breiteres Publikum erreicht.
+Bitte verwende die für neue Themen in diesem Bereich des Forums vorgesehene Standardvorlage, damit die wichtigsten Informationen wie Adapter-Version, Datum und Link zum Repository einheitlich veröffentlicht werden.
 
-Bei Fragen kannst du mich gerne kontaktieren (@iobroker-bot).
+So können Benutzer Feedback geben und dir helfen, den Adapter zu verbessern, bevor er ein breiteres Publikum erreicht.
+
+Falls du keinen Schreibzugriff auf diesen Bereich des Forums hast, kontaktiere bitte '@homoran' über den Forum-Chat und bitte um Schreibzugriff.
+
+Bitte beachte, dass der Adapter aus dem Repository entfernt werden könnte, wenn kein Test-Thema von dir erstellt und gepflegt wird. Benutzer sollten einen Ort haben, um Probleme und Verbesserungsvorschläge für den Adapter zu besprechen.
+
+Bitte **füge beim Schließen dieses Issues einen Kommentar mit dem Link zum Forum-Thema hinzu**.
+
+*Falls du bereits ein Thema erstellt hast, füge einfach einen Kommentar mit dem Link zum Thema hinzu und schließe dieses Issue.*
 
 Und **VIELEN DANK** von mir und allen Benutzern für die Pflege dieses Adapters.  
 _Lasst uns gemeinsam für ein optimales Benutzererlebnis sorgen._
