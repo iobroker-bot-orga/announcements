@@ -14,6 +14,8 @@ const opts = {
     debug: false,
     from: '',
     template: '',
+    filter: '',
+    delay: 120,
 }
 
 let checkScript;
@@ -28,7 +30,7 @@ function debug (text){
 async function initCheck(context){
     debug(`initCheck('${context.template}')`);
 
-    const filename = `${__dirname}/templates/${context.template}.js`;
+    const filename = `${__dirname}/templates/${context.template}/filter.js`;
     console.log(`[INFO] initializing checking script ${filename}`);
 
     try {
@@ -54,6 +56,18 @@ async function checkAnnouncement(context){
     } else {
         return true;
     }
+}
+
+function matchesFilter(owner, adapter) {
+    if (!opts.filter || opts.filter.trim() === '') return true;
+
+    const repoStr = `${owner}/ioBroker.${adapter}`.toLowerCase();
+    const pattern = opts.filter.trim().toLowerCase();
+
+    // Convert wildcard pattern to regex
+    const regexStr = pattern.split('*').map(s => s.replace(/[.+^${}()?|[\]\\]/g, '\\$&')).join('.*');
+    const regex = new RegExp(`^${regexStr}$`);
+    return regex.test(repoStr);
 }
 
 function triggerRepoAnnounce(owner, adapter) {
@@ -84,6 +98,8 @@ function triggerRestart(adapter) {
     debug(`trigger latest restart from ${adapter}`);
 
     let flags = `--from="${adapter}"`;
+    if (opts.filter) flags = flags + ` --filter="${opts.filter}"`;
+    if (opts.delay !== 120) flags = flags + ` --delay="${opts.delay}"`;
     if (opts.cleanup) flags = flags + ' --cleanup';
     if (opts.dry) flags = flags + ' --dry';
     if (opts.debug) flags = flags + ' --debug';
@@ -116,6 +132,12 @@ async function main() {
         'from': {
             type: 'string',
         },
+        'filter': {
+            type: 'string',
+        },
+        'delay': {
+            type: 'string',
+        },
         'template': {
             type: 'string',
         },
@@ -132,15 +154,18 @@ async function main() {
     opts.dry = values['dry'];
     opts.debug = values['debug'];
     opts.from = values['from'];
+    opts.filter = values['filter'] || '';
+    opts.delay = values['delay'] ? parseInt(values['delay'], 10) : 120;
     opts.template = values['template'];
 
     const latestRepo = await iobroker.getLatestRepoLive();
     const total = Object.keys(latestRepo).length;
-    const delay = 120; // seconds
+    const delay = opts.delay;
     let counter = 3 * 60 * (60 / delay); /* delay 3h */
 
     console.log(`[INFO] delay set to ${delay} seconds`);
     console.log(`[INFO] will restart after 3h (${counter} announcements)`);
+    if (opts.filter) console.log(`[INFO] filter set to "${opts.filter}"`);
 
     context.template = opts.template;
     await initCheck(context);
@@ -162,11 +187,17 @@ async function main() {
             console.log (`skipping ${adapter}`);
             continue;
         }
-	    	    
-    	debug (`processing ${latestRepo[adapter].meta}`);
 
         const parts = latestRepo[adapter].meta.split('/');
         const owner = parts[3];
+
+        if (!matchesFilter(owner, adapter)) {
+            debug(`[INFO] skipping ${owner}/ioBroker.${adapter} (filter: "${opts.filter}")`);
+            continue;
+        }
+
+    	debug (`processing ${latestRepo[adapter].meta}`);
+
         console.log(`\n[INFO] processing ${owner}/ioBroker.${adapter} (${curr}/${total})`);
 
         context.owner = owner;
