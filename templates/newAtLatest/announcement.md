@@ -23,6 +23,8 @@ Please note that the adapter might be removed from repository again if no testin
 
 When closing this issue please **add a comment with the link to the forum topic**.
 
+*If you have created a topic already, simply add a comment with the link to the topic and close this issue.*
+
 And **THANKS A LOT** for maintaining this adapter from me and all users.  
 _Let's work together for the best user experience._
 
