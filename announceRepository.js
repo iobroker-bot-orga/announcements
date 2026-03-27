@@ -23,7 +23,7 @@ function debug (text){
 async function checkAnnouncement(context){
     debug(`checkAnnouncement('${context.template}')`);
 
-    const filename = `${__dirname}/templates/${context.template}.js`;
+    const filename = `${__dirname}/templates/${context.template}/filter.js`;
     console.log(`[INFO] activating checking script ${filename}`);
 
     let checkScript;
@@ -51,7 +51,7 @@ async function checkAnnouncement(context){
 async function getAnnouncement(template){
     debug(`getAnnouncement('${template}')`);
 
-    const filename = `${__dirname}/templates/${template}.md`;
+    const filename = `${__dirname}/templates/${template}/announcement.md`;
     console.log(`[INFO] loading ${filename}`);
 
     const data = fs.readFileSync(filename, { encoding: 'utf8', flag: 'r' } );
