@@ -39,3 +39,5 @@ Bei Fragen können Sie sich gerne an mich wenden (@iobroker-bot).
 
 Ihr  
 _ioBroker Check- und Service-Bot_
+
+@mcm1957 fyi
