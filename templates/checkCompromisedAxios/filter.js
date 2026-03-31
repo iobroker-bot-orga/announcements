@@ -44,7 +44,7 @@ function findCompromisedInPackageJson(packageJson) {
 function findCompromisedInPackageLockJson(packageLockJson) {
     const found = [];
 
-    // npm v2/v3 format
+    // npm lockfile v2/v3 format
     if (packageLockJson.packages) {
         for (const pkg of COMPROMISED_PACKAGES) {
             const key = `node_modules/${pkg.name}`;
@@ -54,7 +54,7 @@ function findCompromisedInPackageLockJson(packageLockJson) {
         }
     }
 
-    // npm v1 format
+    // npm lockfile v1 format
     if (packageLockJson.dependencies) {
         for (const pkg of COMPROMISED_PACKAGES) {
             if (packageLockJson.dependencies[pkg.name] && packageLockJson.dependencies[pkg.name].version === pkg.version) {
