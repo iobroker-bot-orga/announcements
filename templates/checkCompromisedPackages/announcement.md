@@ -1,10 +1,10 @@
-**ALARM** Compromised axios release detected **ALARM**
+**ALARM** Compromised release of one or more npm packages detected **ALARM**
 ### Notification from ioBroker Check and Service Bot
 *Deutsche Version weiter unten*
 
 Dear Adapter developer,
 
-One of your `package.json` or `package-lock.json` files contains a reference to one of the compromised packages:
+One of your `package.json` or `package-lock.json` files contains a reference to one of those compromised packages:
 
 ```
 axios@1.14.1
