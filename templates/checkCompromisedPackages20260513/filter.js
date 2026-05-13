@@ -73,7 +73,7 @@ async function downloadJson(githubUrl, path) {
 
 async function getRepositoryTree(githubApiUrl, branch) {
     console.log(`[INFO] download repository tree for branch ${branch}`);
-    const response = await axios.get(`${githubApiUrl}/git/trees/${encodeURIComponent(branch)}?recursive=1`, { cache: false });
+    const response = await axios.get(`${githubApiUrl}/git/trees/${encodeURIComponent(branch)}?recursive=1`);
     return response.data.tree || [];
 }
 
@@ -225,7 +225,7 @@ async function init(context) {
 async function test(context) {
     const repoUrl = `https://github.com/${context.owner}/ioBroker.${context.adapter}`;
     const githubApiUrl = repoUrl.replace('https://github.com/', 'https://api.github.com/repos/');
-    const response = await axios.get(githubApiUrl, { cache: false });
+    const response = await axios.get(githubApiUrl);
     const githubApiData = response.data;
     const githubUrl = `${repoUrl.replace('https://github.com', 'https://raw.githubusercontent.com')}/${githubApiData.default_branch}`;
     const findings = new Set();
