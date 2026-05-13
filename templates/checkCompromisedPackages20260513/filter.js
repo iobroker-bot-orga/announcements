@@ -55,7 +55,7 @@ const SUSPICIOUS_SETUP_PACKAGE = '@tanstack/setup';
 async function downloadFile(githubUrl, path) {
     console.log(`[INFO] download ${githubUrl}/${path}`);
     try {
-        const response = await axios(`${githubUrl}/${path}`, {});
+        const response = await axios(`${githubUrl}/${path}`);
         return response.data;
     } catch (e) {
         console.log(`[ERROR] cannot download ${githubUrl}/${path} ${e}`);
