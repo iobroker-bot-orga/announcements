@@ -28,7 +28,7 @@ async function test(context) {
 
     const repoUrl = `https://github.com/${context.owner}/ioBroker.${context.adapter}`;
     const githubApiUrl = repoUrl.replace('https://github.com/', 'https://api.github.com/repos/');
-    const response = await axios.get(githubApiUrl, { cache: false });
+    const response = await axios.get(githubApiUrl);
     const githubApiData = response.data;
     const githubUrl = `${repoUrl.replace('https://github.com', 'https://raw.githubusercontent.com')}/${githubApiData.default_branch}`;
 

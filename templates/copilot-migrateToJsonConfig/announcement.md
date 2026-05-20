@@ -10,4 +10,4 @@ Config data and types must not be changed. Data within `system.config...` must b
 If adding jsonConfig custom components is required, this is allowed but should be used only if no other possibility exists.
 
 Existing config files (for example `index.html`, `index_m.html`) should be removed.
-`word.js` should be removed if it is not used anywhere within code.
+`words.js` should be removed if it is not used anywhere within code.
