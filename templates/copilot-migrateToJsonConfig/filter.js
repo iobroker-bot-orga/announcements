@@ -4,7 +4,7 @@ const axios = require('axios');
 
 async function downloadFile(githubUrl, path) {
     console.log(`[INFO] download ${githubUrl}${path || ''}`);
-    const response = await axios(githubUrl + (path || ''), {});
+    const response = await axios(githubUrl + (path || ''));
     return response.data;
 }
 
