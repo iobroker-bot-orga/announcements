@@ -15,6 +15,8 @@ The topic should have the title:
 
 Please use the standard template provided for new topics at this section of the forum so that the most important information like adapter version, date information and link to the repository is published in a standard way.
 
+Please ensure that the title of the topic is `"Test Adapter __Adaptername__ Vx.x.x`. Using this standardized title allows better search functionality within forum.
+
 This will allow users to provide feedback, and help you improve the adapter before it reaches a wider audience.
 
 If you do not have write access to this section of the forum, please contact '@homoran' using the forum chat and request write access.
@@ -23,7 +25,7 @@ Please note that the adapter might be removed from the repository again if no te
 
 When closing this issue please **add a comment with the link to the forum topic**.
 
-*If you have created a topic already, simply add a comment with the link to the topic and close this issue.*
+*If you have created a topic at section `tester` already you may continue to use it but ensure that the title matches recommended format. In this case simply add a comment with the link to the topic and close this issue.*
 
 And **THANKS A LOT** for maintaining this adapter from me and all users.  
 _Let's work together for the best user experience._
@@ -53,7 +55,7 @@ Bitte beachte, dass der Adapter aus dem Repository entfernt werden könnte, wenn
 
 Bitte **füge beim Schließen dieses Issues einen Kommentar mit dem Link zum Forum-Thema hinzu**.
 
-*Falls du bereits ein Thema erstellt hast, füge einfach einen Kommentar mit dem Link zum Thema hinzu und schließe dieses Issue.*
+*Falls du bereits ein Thema erstellt hast passe bitte bei Beadrf den Titel an und füge einfach einen Kommentar mit dem Link zum Thema hier ins Issue hinzu und schließe dieses Issue.*
 
 Und **VIELEN DANK** von mir und allen Benutzern für die Pflege dieses Adapters.  
 _Lasst uns gemeinsam für ein optimales Benutzererlebnis sorgen._
