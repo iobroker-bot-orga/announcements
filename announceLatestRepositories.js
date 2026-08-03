@@ -16,6 +16,7 @@ const opts = {
     template: '',
     filter: '',
     delay: 120,
+    recreate: false,
 }
 
 let checkScript;
@@ -79,6 +80,7 @@ function triggerRepoAnnounce(owner, adapter) {
     if (opts.cleanup) flags = flags + ' --cleanup';
     if (opts.dry) flags = flags + ' --dry';
     if (opts.debug) flags = flags + ' --debug';
+    if (opts.recreate) flags = flags + ' --recreate';
 
     // curl -L -X POST -H "Accept: application/vnd.github+json" -H "Authorization: Bearer ghp_xxxxxxxx" https://api.github.com/repos/iobroker-bot-orga/check-tasks/dispatches -d "{\"event_type\": \"check-repository\", \"client_payload\": {\"url\": \"mcm1957/iobroker.weblate-test\"}}"
     return axios.post(`https://api.github.com/repos/iobroker-bot-orga/announcements/dispatches`, {"event_type": "announce-repository", "client_payload": {"url": url, "template" : opts.template, "flags" : flags}},
@@ -103,6 +105,7 @@ function triggerRestart(adapter) {
     if (opts.cleanup) flags = flags + ' --cleanup';
     if (opts.dry) flags = flags + ' --dry';
     if (opts.debug) flags = flags + ' --debug';
+    if (opts.recreate) flags = flags + ' --recreate';
 
     // curl -L -X POST -H "Accept: application/vnd.github+json" -H "Authorization: Bearer ghp_xxxxxxxx" https://api.github.com/repos/iobroker-bot-orga/check-tasks/dispatches -d "{\"event_type\": \"check-repository\", \"client_payload\": {\"url\": \"mcm1957/iobroker.weblate-test\"}}"
     return axios.post(`https://api.github.com/repos/iobroker-bot-orga/announcements/dispatches`, {"event_type": "announce-latest-restart", "client_payload": {"template": opts.template, "flags" : flags}},
@@ -141,6 +144,9 @@ async function main() {
         'template': {
             type: 'string',
         },
+        'recreate': {
+            type: 'boolean',
+        },
     };
 
     const {
@@ -157,6 +163,7 @@ async function main() {
     opts.filter = values['filter'] || '';
     opts.delay = values['delay'] ? parseInt(values['delay'], 10) : 120;
     opts.template = values['template'];
+    opts.recreate = values['recreate'];
 
     const latestRepo = await iobroker.getLatestRepoLive();
     const total = Object.keys(latestRepo).length;
