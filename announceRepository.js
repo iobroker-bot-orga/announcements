@@ -136,6 +136,9 @@ async function main() {
         'dry': {
             type: 'boolean',
         },
+        'recreate': {
+            type: 'boolean',
+        },
     };
 
     const {
@@ -149,6 +152,7 @@ async function main() {
 
     opts.debug = values['debug'];
     opts.dry = values['dry'];
+    opts.recreate = values['recreate'];
     opts.template = values['template'];
 
     if (positionals.length != 1) {
