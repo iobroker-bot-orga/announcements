@@ -6,7 +6,7 @@ Dear adapter developer,
 
 This adapter seems to use a jsonConfig component of type `custom`. Admin 8.x.x introduces breaking changes which require all jsonConfig components of type `custom` to be adapted. So most likely this adapter needs a rework to continue working with admin release 8.x.x.
 
-If your adapter really uses a react based custom component please adapt it to meet admin 8.x.x requirements. Feel free to contact @bluefox at telegram if you need support and more infomration abount the reuired changes.
+If your adapter really uses a react based custom component please adapt it to meet admin 8.x.x requirements. Please read the migration information at https://github.com/ioBroker/adapter-react-v5/blob/main/MIGRATION_8_10.md. Feel free to contact @bluefox at telegram if you need support and more infomration abount the reuired changes.
 
 **Note that adminUI using `custom' component will no longer work without adaption if users update to admin 8.x.x**
 
@@ -24,7 +24,7 @@ Lieber Entwickler,
 
 Dieser Adapter verwendet offenbar die jsonConfig-Komponente `custom`. Admin 8.x.x führt einschneidende Änderungen ein, die erfordern, dass alle jsonConfig-Komponenten vom Typ `custom` angepasst werden. Daher muss dieser Adapter höchstwahrscheinlich überarbeitet werden, um mit der Admin-Version 8.x.x weiterhin zu funktionieren.
 
-Falls der Adapetr tatsächlich eine recat basierende custom Komponente enthält muss diese angepasst werden damit dieser Adapter mit admin 8.x.x funktioniert. Bitte bei Bedarf @bluefox auf telegramm kontaktieren falls Unterstützung oder weitere Informationen benötigt werden.
+Falls der Adapetr tatsächlich eine recat basierende custom Komponente enthält muss diese angepasst werden damit dieser Adapter mit admin 8.x.x funktioniert. OInformationen zur MIgration findet man hier: Please read the migration information at https://github.com/ioBroker/adapter-react-v5/blob/main/MIGRATION_8_10.md. Bitte bei Bedarf @bluefox auf telegramm kontaktieren falls Unterstützung oder weitere Informationen benötigt werden.
 
 **Bitte beachten, dass ein AdminUI mit `custom` Komponente ohne Anpassung nicht mehr funktionieren wird sobal duser auf admin 8.x.x aktualisiseren.**
 
