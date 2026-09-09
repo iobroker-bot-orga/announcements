@@ -22,7 +22,7 @@ your
 _ioBroker Check and Service Bot_
 
 @mcm1957 for evidence
-24
+
 _Note: If you added node 26 tests already, simply close this issue._
 
 - - - 
