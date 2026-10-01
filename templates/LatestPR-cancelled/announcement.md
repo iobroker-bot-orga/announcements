@@ -3,9 +3,9 @@
 
 *Deutsche Version siehe weiter unten.*
 
-Dear adapter developer,
+Dear user,
 
-the maintainer has requested the addition of this adapter to the ioBroker repositories, but additional information and/or required adaptations have not been provided. There has been absolutely no feedback from the maintainer. It therefore appears that this adapter will no longer be maintained.
+the maintainer of this adapter has requested the addition to the ioBroker repositories, but additional information and/or required adaptations have not been provided. There has been absolutely no feedback from the maintainer. It therefore appears that this adapter will no longer be maintained.
 
 Installation of this adapter on productive systems is not recommended.
 
@@ -17,7 +17,7 @@ _ioBroker Check and Service Bot_
 
 ---
 
-Lieber Adapter-Entwickler,
+Lieber User,
 
 der Maintainer hat die Aufnahme dieses Adapters in die ioBroker-Repositories beantragt, jedoch wurden zusätzliche Informationen und/oder erforderliche Anpassungen nicht bereitgestellt. Es gab keinerlei Rückmeldung vom Maintainer. Es sieht daher so aus, als würde dieser Adapter nicht mehr weiterentwickelt werden.
 
