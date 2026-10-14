@@ -47,7 +47,7 @@ Liebe Adapterentwickler,
 
 GitHub wird ab dem **2. November 2026** Ausführungsrichtlinien für Workflows erzwingen, die `pull_request_target` verwenden. Nach diesem Datum werden Workflows, die durch Pull Requests aus geforkten Repositories ausgelöst werden, nicht mehr über `pull_request_target` gestartet, es sei denn, dieses Ereignis wurde durch eine explizite Ausführungsrichtlinie erlaubt.
 
-Weitere Informationen finden sich in der offiziellen Dokumentation: https://docs.github.com/en/actions/reference/security/securely-using-pull_request_target#default-policy-for-pull_request_target
+Weitere Informationen finden sich in der offiziellen Dokumentation: https://docs.github.com/de/actions/reference/security/securely-using-pull_request_target#default-policy-for-pull_request_target
 
 GitHub informiert derzeit über diese Änderung durch eine Anmerkung im Workflow-Log betroffener Workflows:
 > Workflow execution policy warning (evaluate mode): .github/workflows/automerge-iobroker-bot.yml#L1  
