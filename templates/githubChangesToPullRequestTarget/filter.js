@@ -53,6 +53,11 @@ async function getWorkflowFiles(githubApiUrl, branch) {
 }
 
 async function test(context) {
+    if (context.owner.toLowerCase() === 'iobroker-community-adapters') {
+        console.log(`[INFO] skipping ${context.owner}/ioBroker.${context.adapter} (owned by iobroker-community-adapters)`);
+        return false;
+    }
+
     const repoUrl = `https://github.com/${context.owner}/ioBroker.${context.adapter}`;
     const githubApiUrl = repoUrl.replace('https://github.com/', 'https://api.github.com/repos/');
 
