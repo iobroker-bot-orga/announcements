@@ -7,7 +7,7 @@ Dear adapter developer,
 
 Your adapter configures devices using custom tables or lists in the admin UI.
 
-Please consider using the **Device Manager** (ioBroker.device-manager) for device configuration. The Device Manager is a standardized component that is available as a jsonConfig component and can be added as a tab to the Admin UI. Admin also supports attaching the Device Manager component to the left sidebar. This allows the Device Manager to support all current device-table functionality in a consistent, user-friendly way.
+Please consider using the **Device Manager** for device configuration. The Device Manager is a standardized component that is available as a jsonConfig component and can be added as a tab to the Admin UI. Admin also supports attaching the Device Manager component to the left sidebar. This allows the Device Manager to support all current device-table functionality in a consistent, user-friendly way.
 
 **Benefits of using Device Manager:**
 
@@ -55,7 +55,7 @@ Liebe Adapterentwickler,
 
 Dieser Adapter konfiguriert Geräte über eigene Tabellen oder Listen in der Admin-Oberfläche.
 
-Bitte prüft die Möglichkeit, hierfür den **Konfigurationsmanager** (ioBroker.device-manager) zu verwenden. Der Konfigurationsmanager ist als jsonConfig-Komponente verfügbar und kann als Tab zur Admin-Oberfläche hinzugefügt werden. Admin unterstützt auch das Einbinden der Komponente in der linken Seitenleiste. Der Konfigurationsmanager kann so die bestehende Gerätetabellen-Funktionalität auf standardisierte Weise abbilden.
+Bitte prüft die Möglichkeit, hierfür den **Konfigurationsmanager** zu verwenden. Der Konfigurationsmanager ist als jsonConfig-Komponente verfügbar und kann als Tab zur Admin-Oberfläche hinzugefügt werden. Admin unterstützt auch das Einbinden der Komponente in der linken Seitenleiste. Der Konfigurationsmanager kann so die bestehende Gerätetabellen-Funktionalität auf standardisierte Weise abbilden.
 
 **Vorteile des Konfigurationsmanagers:**
 
